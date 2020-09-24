@@ -14,6 +14,9 @@ using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using DemoInventory.Infrastructure.Data.Context;
+using Microsoft.EntityFrameworkCore;
+using DemoInventory.Infrastructure.IoC;
 
 namespace DemoInventory.UI.MVC
 {
@@ -41,6 +44,14 @@ namespace DemoInventory.UI.MVC
             });
            services.AddRazorPages()
                 .AddMicrosoftIdentityUI();
+
+            services.AddDbContext<InventoryDbContext>(options =>
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("InventoryConnection"));
+                ;
+            });
+
+            RegisterService(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -71,6 +82,11 @@ namespace DemoInventory.UI.MVC
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
+        }
+
+        private static void RegisterService(IServiceCollection services)
+        {
+            DependencyContainer.RegisterService(services);
         }
     }
 }

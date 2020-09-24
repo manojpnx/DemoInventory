@@ -1,0 +1,21 @@
+﻿@model DemoInventory.Application.ViewModels.ProductViewModel
+
+<table id="prodct">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var prodct in Model.Products)
+        {
+            <tr style="height: 60px">
+                <td>@prodct.Id</td>
+                <td>@prodct.Name</td>
+                <td>@prodct.Description</td>
+            </tr>
+        }
+    </tbody>
+</table>
