@@ -12,4 +12,5 @@ Steps to run the application
 3. Run the MVC project
 
 Test user: inventoryuser02@stratusogsm1outlook.onmicrosoft.com
+
 pw : J3llyf!$h
