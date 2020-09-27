@@ -1,0 +1,48 @@
+﻿@page
+@model DemoInventory.Application.ViewModels.ProductViewModel
+
+@using (Html.BeginForm("Update", "Product", FormMethod.Post))
+{
+
+    <form>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                @Html.Label("Name")
+                @Html.TextBoxFor(p => p.Product.Name, null, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                @Html.Label("Sku")
+                @Html.TextBoxFor(p => p.Product.Sku, null, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                @Html.Label("Description")
+                @Html.TextBoxFor(p => p.Product.Description, null, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                @Html.Label("Quantity")
+                @Html.TextBoxFor(p => p.Product.Quantity, null, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                @Html.Label("Reorder Level")
+                @Html.TextBoxFor(p => p.Product.ReorderLevel, null, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                @Html.Label("Price")
+                @Html.TextBoxFor(p => p.Product.Price, null, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+
+}

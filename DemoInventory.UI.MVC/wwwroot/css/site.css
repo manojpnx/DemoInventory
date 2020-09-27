@@ -69,3 +69,33 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+
+/* grid btns */
+.editbtn, .delbtn, .editnst, .delnst {
+    padding: .2em .3em;
+}
+
+.ico-crud {
+    background-image: url(editdel.png);
+}
+
+.gui3 .ico-crud, .met .ico-crud {
+    background-image: url(editdel_w.png);
+}
+
+.ico-edit, .ico-del {
+    display: block;
+    overflow: hidden;
+    height: 18px;
+    width: 18px;
+    background-repeat: no-repeat;
+}
+
+.ico-edit {
+    background-position: 0 -1px;
+}
+
+.ico-del {
+    background-position: -17px -1px;
+}
+/* grid btns */

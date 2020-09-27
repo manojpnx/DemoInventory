@@ -1,20 +1,34 @@
 ﻿@model DemoInventory.Application.ViewModels.ProductViewModel
 
-<table id="prodct">
+<a href="@Url.Action("Create", "Product")" class="btn btn-primary">Create</a>
+<table class="table">
     <thead>
         <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Description</th>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Sku</th>
+            <th scope="col">Description</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">ReorderLevel</th>
+            <th scope="col">Price</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+
         </tr>
     </thead>
     <tbody>
         @foreach (var prodct in Model.Products)
         {
-            <tr style="height: 60px">
+            <tr>
                 <td>@prodct.Id</td>
                 <td>@prodct.Name</td>
+                <td>@prodct.Sku</td>
                 <td>@prodct.Description</td>
+                <td>@prodct.Quantity</td>
+                <td>@prodct.ReorderLevel</td>
+                <td>@prodct.Price</td>
+                <td><a href="@Url.Action("Edit", "Product",new { id = prodct.Id })">Edit</a></td>
+                <td><a href="@Url.Action("Delete", "Product",new { id = prodct.Id })">Delete</a></td>
             </tr>
         }
     </tbody>

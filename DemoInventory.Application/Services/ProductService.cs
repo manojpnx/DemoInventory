@@ -1,8 +1,10 @@
 ﻿using DemoInventory.Application.Interfaces;
 using DemoInventory.Application.ViewModels;
+using DemoInventory.Domain.Entities;
 using DemoInventory.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace DemoInventory.Application.Services
@@ -21,6 +23,28 @@ namespace DemoInventory.Application.Services
             {
                 Products = _productRepository.GetProducts()
             };
+        }
+
+        public bool Create(Product product) 
+        {
+           return _productRepository.Create(product);
+        }
+
+        public ProductViewModel GetProduct(long id)
+        {
+            return new ProductViewModel()
+            {
+                Product = _productRepository.GetProduct(id)
+            };
+        }
+
+        public bool Update(Product product)
+        {
+            return _productRepository.Update(product);
+        }
+        public bool Delete(long id)
+        {
+            return _productRepository.Delete(id);
         }
     }
 }
